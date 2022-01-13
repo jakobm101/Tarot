@@ -1,5 +1,9 @@
 from tarotlibrary import cards
+from tlibclass import deck
 import random
+
+# test
+#print(deck[1].give_meaning(True))
 
 ##1 select card
 ##2 check if upright
@@ -33,10 +37,10 @@ def tarot_round():
     choice = choosing()
 
     ##1 select card
-    selected = cards[random.randint(0,3)]
+    selected = deck[random.randint(0,3)]
     # prohibit that the same card show up twice
     while selected == choice:
-        selected = cards[random.randint(0,3)]
+        selected = deck[random.randint(0,3)]
 
     print(10*"\n" + "YOUR CARDS:\nThe " + selected[0], end=", ")
 
