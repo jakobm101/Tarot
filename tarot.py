@@ -9,13 +9,13 @@ import random
 
 def tarot_round():
     #clear screen
-    print(12 * "\n")
+    print(15 * "\n")
 
     def choosing():
         choice = input("Choose a card between 1 and 4: ")
         choices = ["1","2","3","4"]
         if choice in choices:
-                return int(choice)
+                return int(choice) - 1
         else:
             print("Wrong input.")
             choosing()
@@ -28,12 +28,17 @@ def tarot_round():
             return ("reversed")
         else:
             return ("upright")
-
+    
+    # choose a card
     choice = choosing()
 
     ##1 select card
     selected = cards[random.randint(0,3)]
-    print(selected[0])
+    # prohibit that the same card show up twice
+    while selected == choice:
+        selected = cards[random.randint(0,3)]
+
+    print(10*"\nThe " + selected[0], end=", ")
 
     ##2 check if upright
     orientation = upright_check()
@@ -44,14 +49,14 @@ def tarot_round():
 
     ##4 Sublementing card
     sub_orientation = upright_check()
-    print("This will be further elaborated by: The " + cards[choice][0] + ", " + str_upright(sub_orientation) + "\n" + cards[choice][sub_orientation+1])
+    print("\nThis will be further elaborated by: \nThe " + cards[choice][0] + ", " + str_upright(sub_orientation) + "\n" + cards[choice][sub_orientation+1])
 
     ##5 again?
-    repeat = input("Do you want to get aother reading? (y/n) ")
+    repeat = input("Do you want to get another reading? (y/n) ")
     if repeat == "y":
         tarot_round()
     else:
-        print("OK, bye.")
+        print(20*"\n"+"OK, bye.")
 
     
 
