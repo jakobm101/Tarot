@@ -38,7 +38,7 @@ def tarot_round():
     while selected == choice:
         selected = cards[random.randint(0,3)]
 
-    print(10*"\nThe " + selected[0], end=", ")
+    print(10*"\n" + "YOUR CARDS:\nThe " + selected[0], end=", ")
 
     ##2 check if upright
     orientation = upright_check()
@@ -57,7 +57,5 @@ def tarot_round():
         tarot_round()
     else:
         print(20*"\n"+"OK, bye.")
-
-    
 
 tarot_round()
